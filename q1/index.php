@@ -52,7 +52,7 @@
             <div class="d-flex justify-content-between">
                 <!-- 2 onclick -->
                 <!-- 在執行這裡之前先建立 view.php 以檢查是否有用 -->
-                <div><input type="button" value="新增網站標題圖片" onclick="op('#cover','#cvr','view.php')"></div>
+                <div><input type="button" value="新增網站標題圖片" onclick="op('#cover','#cvr','title.php')"></div>
                 <!-- 2 -->
                 <div>
                     <input type="button" value="修改確定">
