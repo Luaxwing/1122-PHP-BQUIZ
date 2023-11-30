@@ -25,8 +25,11 @@
     </div>
     <!-- 1 -->
     <header class="container">
-
-        <img src="" alt="">
+<?php
+$img=$Title->find(['sh'=>1]);
+// dd($img);
+?>
+        <img src="img/<?=$img['img']?>" alt="">
 
     </header>
 
@@ -43,18 +46,18 @@
                     <td></td>
                 </tr>
                 <?php
-                $rows=$Title->all();
-                foreach($rows as $row){
-                ?>
-                <tr>
-                    <td><img src="./img/<?=$row['img'];?>" style="width:300px;height:30px;" alt=""></td>
-                    <td><input type="text" name="text[]" id="" value="<?=$row['text'];?>"style="width:90%"></td>
-                    <td><input type="radio" name="sh" id=""></td>
-                    <td><input type="checkbox" name="del[]" value="<?=$row['id']?>" id=""></td>
-                    <td><input class="btn btn-primary" type="button" value="更新圖片"></td>
-                    <input type="hidden" name="id[]" value="<?=$row['id']?>">
-                </tr>
-                <?php
+                $rows = $Title->all();
+                foreach ($rows as $row) {
+                    ?>
+                    <tr>
+                        <td><img src="./img/<?= $row['img']; ?>" style="width:300px;height:30px"></td>
+                        <td><input type="text" name="text[]" id="" value="<?= $row['text']; ?>" style="width:90%"></td>
+                        <td><input type="radio" name="sh" id="" value="<?= $row['id']; ?>" <?= ($row['sh'] == 1) ? 'checked' : ''; ?>>
+                        </td>
+                        <td><input type="checkbox" name="del[]" id="" value="<?= $row['id']; ?>"></td>
+                        <td><input class='btn btn-primary' type="button" value="更新圖片"></td>
+                        <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
+                        <?php
                 }
                 ?>
             </table>
@@ -64,7 +67,7 @@
                 <div><input type="button" value="新增網站標題圖片" onclick="op('#cover','#cvr','title.php')"></div>
                 <!-- 2 -->
                 <div>
-                    <input type="button" value="修改確定">
+                    <input type="submit" value="修改確定">
                     <input type="reset" value="重置">
                 </div>
                 <!-- div>input:submit+input:reset -->
