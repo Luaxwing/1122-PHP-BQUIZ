@@ -33,7 +33,7 @@
     <main class="container">
         <h3 class="text-center">網站標題管理</h3>
         <hr>
-        <form action="" method="post">
+        <form action="edit_title.php" method="post">
             <table class="table table-bordered text-center">
                 <tr>
                     <td>網站標題</td>
