@@ -1,3 +1,4 @@
+<?php include_once "db.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,13 +42,21 @@
                     <td>刪除</td>
                     <td></td>
                 </tr>
+                <?php
+                $rows=$Title->all();
+                foreach($rows as $row){
+                ?>
                 <tr>
-                    <td><img src="" style="width:300px;height:30px;" alt=""></td>
-                    <td><input type="text" name="" id="" style="width:90%"></td>
-                    <td><input type="radio" name="" id=""></td>
-                    <td><input type="checkbox" name="" id=""></td>
+                    <td><img src="./img/<?=$row['img'];?>" style="width:300px;height:30px;" alt=""></td>
+                    <td><input type="text" name="text[]" id="" value="<?=$row['text'];?>"style="width:90%"></td>
+                    <td><input type="radio" name="sh" id=""></td>
+                    <td><input type="checkbox" name="del[]" value="<?=$row['id']?>" id=""></td>
                     <td><input class="btn btn-primary" type="button" value="更新圖片"></td>
+                    <input type="hidden" name="id[]" value="<?=$row['id']?>">
                 </tr>
+                <?php
+                }
+                ?>
             </table>
             <div class="d-flex justify-content-between">
                 <!-- 2 onclick -->
@@ -58,7 +67,9 @@
                     <input type="button" value="修改確定">
                     <input type="reset" value="重置">
                 </div>
-                <div></div>
+                <!-- div>input:submit+input:reset -->
+                <div>
+                </div>
             </div>
         </form>
     </main>
