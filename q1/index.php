@@ -25,11 +25,11 @@
     </div>
     <!-- 1 -->
     <header class="container">
-<?php
-$img=$Title->find(['sh'=>1]);
-// dd($img);
-?>
-        <img src="img/<?=$img['img']?>" alt="">
+        <?php
+        $img = $Title->find(['sh' => 1]);
+        // dd($img);
+        ?>
+        <img src="img/<?= $img['img'] ?>" alt="">
 
     </header>
 
@@ -46,8 +46,10 @@ $img=$Title->find(['sh'=>1]);
                     <td></td>
                 </tr>
                 <?php
+                // 這裡是關鍵,$row['id'] 的"輸入"幾乎影響每個操作
                 $rows = $Title->all();
                 foreach ($rows as $row) {
+                    // 
                     ?>
                     <tr>
                         <td><img src="./img/<?= $row['img']; ?>" style="width:300px;height:30px"></td>
@@ -55,7 +57,9 @@ $img=$Title->find(['sh'=>1]);
                         <td><input type="radio" name="sh" id="" value="<?= $row['id']; ?>" <?= ($row['sh'] == 1) ? 'checked' : ''; ?>>
                         </td>
                         <td><input type="checkbox" name="del[]" id="" value="<?= $row['id']; ?>"></td>
-                        <td><input class='btn btn-primary' type="button" value="更新圖片"></td>
+                        <td><input class='btn btn-primary' type="button" value="更新圖片"
+                                onclick="op('#cover','#cvr','upload_title.php?id=<?= $row['id']; ?>')"></td>
+                        <!-- 單獨發請求用get -->
                         <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
                         <?php
                 }
