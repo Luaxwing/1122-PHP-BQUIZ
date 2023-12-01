@@ -18,6 +18,7 @@
     </header>
     <!-- HEADER END -->
 
+    <!-- MAIN -->
     <main class="container">
         <fieldset>
             <legend>目前位置 : 首頁 > 問卷調查</legend>
@@ -29,17 +30,31 @@
                     <th>結果</th>
                     <th>狀態</th>
                 </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                <!-- 撈資料 -->
+                <?php
+                // $idx --- index
+                $ques = $Que->all(['subject' => 0]);
+                foreach ($ques as $idx => $que) {
+                    ?>
+                    <tr>
+                        <td>
+                            <?= $idx + 1; ?>
+                        </td>
+                        <td>
+                            <?= $que['text']; ?>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <?php
+                }
+                ?>
             </table>
         </fieldset>
     </main>
-
+    <!-- MAIN END -->
 
 
 

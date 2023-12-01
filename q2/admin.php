@@ -67,17 +67,11 @@
             <table class="table">
                 <?php
                 $ques = $Que->all(['subject_id' => 0]);
-                // dd($ques);
                 foreach ($ques as $idx => $que) {
-                    // dd($idx);
-                    // dd($que);
-                    // print_r($idx);
-                    // echo $que['text'];
-                    // echo "abc";
                     ?>
                     <tr>
                         <td>
-                            <?= $idx+1; ?>
+                            <?= $idx + 1; ?>
                         </td>
                         <td>
                             <?= $que['text']; ?>
@@ -89,9 +83,9 @@
                             <button class="btn btn-success">
                                 編輯
                             </button>
-                            <button class="btn btn-danger">
-                                刪除
-                            </button>
+                            <a href="./api/del.php?id=<?= $que['id']; ?>">
+                                <button class="btn btn-danger">刪除</button>
+                            </a>
                         </td>
                     </tr>
                     <?php
