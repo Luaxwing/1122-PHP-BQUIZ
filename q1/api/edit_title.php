@@ -1,5 +1,5 @@
 <?php
-include_once "db.php";
+include_once "../db.php";
 dd($_POST);
 foreach ($_POST['id'] as $key => $id) {
 
@@ -44,5 +44,5 @@ $Title->save($_POST);
 
 
  */
-header("location:index.php");
+header("location:../");
 ?>

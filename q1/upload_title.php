@@ -1,6 +1,6 @@
 <h3 class="text-center">更新標題區圖片<?=$_GET['id']?></h3>
 <hr>
-<form action="update_title.php" method="post" enctype="multipart/form-data">
+<form action="api/update_title.php" method="post" enctype="multipart/form-data">
     <table class="col-8 m-auto">
         <tr>
             <td>標題區圖片:</td>
