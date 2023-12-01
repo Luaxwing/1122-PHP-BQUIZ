@@ -94,7 +94,7 @@ function min( $col,$where = '', $other = '')
 // 
 
     // 
-    // 查找特定ID
+    // 查找特定ID 或 條件
     function find($id)
     {
         $sql = "select * from `$this->table` ";
@@ -212,7 +212,7 @@ function dd($array)
 
 // 記得:這裡的table是輸入字串，不是欄位
 // 引入字串，字串才去帶`col`
-$Title=new DB('titles');
+$Que=new DB('que');
 
 
 

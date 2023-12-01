@@ -1,3 +1,4 @@
+<?php include_once('db.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,7 +37,7 @@
     <main class="container">
         <fieldset class="scheduler-border">
             <legend>新增問卷</legend>
-            <form action="add_que.php" method="post">
+            <form action="api/add_que.php" method="post">
                 <div class="d-flex">
                     <div class="col-3 bg-light p-2">問卷名稱</div>
                     <div class="col-6 p-2"><input type="text" name="subject" id=""></div>
@@ -59,6 +60,44 @@
                     <input type="reset" value="清空">
                 </div>
             </form>
+        </fieldset>
+
+        <fieldset>
+            <legend></legend>
+            <table class="table">
+                <?php
+                $ques = $Que->all(['subject_id' => 0]);
+                // dd($ques);
+                foreach ($ques as $idx => $que) {
+                    // dd($idx);
+                    // dd($que);
+                    // print_r($idx);
+                    // echo $que['text'];
+                    // echo "abc";
+                    ?>
+                    <tr>
+                        <td>
+                            <?= $idx+1; ?>
+                        </td>
+                        <td>
+                            <?= $que['text']; ?>
+                        </td>
+                        <td>
+                            <button class="btn btn-info">
+                                顯示
+                            </button>
+                            <button class="btn btn-success">
+                                編輯
+                            </button>
+                            <button class="btn btn-danger">
+                                刪除
+                            </button>
+                        </td>
+                    </tr>
+                    <?php
+                }
+                ?>
+            </table>
         </fieldset>
     </main>
 
