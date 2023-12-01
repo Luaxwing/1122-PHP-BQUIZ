@@ -36,6 +36,7 @@
                 // $idx --- index
                 $ques = $Que->all(['subject_id' => 0]);
                 foreach ($ques as $idx => $que) {
+                    if($que['sh']==1){
                     ?>
                     <tr>
                         <td>
@@ -56,10 +57,12 @@
                             <a class="btn btn-warning" href="vote.php?id=<?= $que['id']; ?>">
                                 我要投票
                             </a>
+
                         </td>
                     </tr>
 
                     <?php
+                    }
                 }
                 ?>
             </table>

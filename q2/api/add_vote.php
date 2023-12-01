@@ -8,6 +8,11 @@ $subject=$Que->find($opt['subject_id']);
 $subject['count']=$subject['count']+1;
 
 
+// $subject['sh']=0;
+
+
+
+
 $Que->save($opt);
 $Que->save($subject);
 
